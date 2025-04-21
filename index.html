@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learning Management System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background-color: #f4f6f7;
+      font-family: 'Arial', sans-serif;
+    }
+    .navbar {
+      background-color: #ffa726; /* Light Orange */
+    }
+    .navbar-brand {
+      color: white;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+    .navbar-nav .nav-link {
+      color: white;
+    }
+    .navbar-nav .nav-link:hover,
+    .dropdown:hover .nav-link {
+      color: #e65100;
+    }
+    .profile-icon {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .navbar-brand-container {
+      display: flex;
+      align-items: center;
+    }
+    .category-card {
+      border-radius: 10px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+    .category-card:hover {
+      transform: translateY(-5px);
+    }
+    .category-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px 10px 0 0;
+    }
+    .category-name {
+      font-size: 18px;
+      font-weight: bold;
+      color: #66bb6a;
+      padding: 15px;
+      text-align: center;
+    }
+     .footer {
+      background-color: #ffa726;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    .chatbot-icon {
+      position: fixed;
+      top: 50%;
+      right: 30px;
+      transform: translateY(-50%);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #ffa726;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      z-index: 1050;
+      cursor: pointer;
+    }
+    .chatbot-icon img {
+      width: 35px;
+      height: 35px;
+    }
+
+    /* Show dropdown on hover */
+    .dropdown:hover .dropdown-menu {
+      display: block;
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container d-flex align-items-center">
+
+    <!-- Toggler Menu Button -->
+    <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Brand with Profile Icon -->
+    <div class="navbar-brand-container">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile" class="profile-icon">
+      <a class="navbar-brand" href="HOME_PAGE.html">LMS</a>
+    </div>
+
+    <!-- Nav Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="HOME_PAGE.html">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" href="COURSES.html">Courses</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="regulationDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Regulation
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="regulationDropdown">
+            <li><a class="dropdown-item" href="R20_Regulation.html">R20</a></li>
+            <li><a class="dropdown-item" href="R23_Regulation.html">R23</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="regulationDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Syllabus
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="regulationDropdown">
+            <li><a class="dropdown-item" href="R20_Syllabus.html">R20</a></li>
+            <li><a class="dropdown-item" href="R23_Syllabus.html">R23</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="NOTIFICATION.html">Notifications</a></li>
+        <li class="nav-item"><a class="nav-link" href="PROFILE.html">Profile</a></li>
+        <li class="nav-item"><a class="nav-link" href="MORE.html">More ....</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Chatbot Label -->
+<div style="position: fixed; top: calc(50% + 40px); right: 10px; transform: translateY(-50%); background-color: #ffffff; color: #ffa726; font-weight: bold; padding: 8px 12px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 1049;">
+  Hi! Ask TutorBot Anything!
+</div>
+
+<!-- Chatbot Icon -->
+<div class="chatbot-icon" title="Chat with us">
+  <img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png" alt="Chatbot">
+</div>
+
+<!-- Welcome Message -->
+<div class="container text-center my-5"> 
+  <h1 class="display-4">Welcome to the Learning Management System!</h1>
+  <p>Your personalized platform for learning, collaboration, and academic growth.</p>
+</div>
+
+<!-- Course Cards Section -->
+<div class="container mb-5 pb-5">
+  <h2 class="text-center mb-4">SELECT COURSES</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+   <!-- Example Cards with redirect links -->
+<div class="col">
+  <a href="python.html" class="text-decoration-none">
+    <div class="card category-card">
+      <img src="C:\PROJECT-EDU\PYTHON PROGRAMMING.jpg" class="category-img">
+      <div class="category-name">Python Programming</div>
+    </div>
+  </a>
+</div>
+
+<div class="col">
+  <a href="ai_ml.html" class="text-decoration-none">
+    <div class="card category-card">
+      <img src="C:\PROJECT-EDU\AI&ML.jpg" class="category-img">
+      <div class="category-name">AI & ML</div>
+    </div>
+  </a>
+</div>
+
+<div class="col">
+  <a href="java.html" class="text-decoration-none">
+    <div class="card category-card">
+      <img src="C:\PROJECT-EDU\JAVA.jpg" class="category-img">
+      <div class="category-name">Java</div>
+    </div>
+  </a>
+</div>
+
+<div class="col">
+  <a href="c_language.html" class="text-decoration-none">
+    <div class="card category-card">
+      <img src="C:\PROJECT-EDU\C LANGUAGE.jpg" class="category-img">
+      <div class="category-name">C Language</div>
+    </div>
+  </a>
+</div>
+
+<div class="col">
+  <a href="web_dev.html" class="text-decoration-none">
+    <div class="card category-card">
+      <img src="https://via.placeholder.com/400x200?text=Python" class="category-img">
+      <div class="category-name">Web Development</div>
+    </div>
+  </a>
+</div>
+
+<div class="col">
+  <a href="cloud.html" class="text-decoration-none">
+    <div class="card category-card">
+      <img src="https://via.placeholder.com/400x200?text=Java" class="category-img">
+      <div class="category-name">Cloud Computing</div>
+    </div>
+  </a>
+</div>
+
+<div class="col">
+  <a href="dsa.html" class="text-decoration-none">
+    <div class="card category-card">
+      <img src="https://via.placeholder.com/400x200?text=DSA" class="category-img">
+      <div class="category-name">Data Structures</div>
+    </div>
+  </a>
+</div>
+
+<div class="col">
+  <a href="networks.html" class="text-decoration-none">
+    <div class="card category-card">
+      <img src="https://via.placeholder.com/400x200?text=Networks" class="category-img">
+      <div class="category-name">Computer Networks</div>
+    </div>
+  </a>
+</div>
+
+<div class="col">
+  <a href="dbms.html" class="text-decoration-none">
+    <div class="card category-card">
+      <img src="https://via.placeholder.com/400x200?text=DBMS" class="category-img">
+      <div class="category-name">Database Management Systems</div>
+    </div>
+  </a>
+</div>
+
+<div class="col">
+  <a href="mobile.html" class="text-decoration-none">
+    <div class="card category-card">
+      <img src="https://via.placeholder.com/400x200?text=Mobile+Apps" class="category-img">
+      <div class="category-name">Mathematics</div>
+    </div>
+  </a>
+</div>
+
+<div class="col">
+  <a href="os.html" class="text-decoration-none">
+    <div class="card category-card">
+      <img src="https://via.placeholder.com/400x200?text=OS" class="category-img">
+      <div class="category-name">Operating Systems</div>
+    </div>
+  </a>
+</div>
+
+<div class="col">
+  <a href="software_eng.html" class="text-decoration-none">
+    <div class="card category-card">
+      <img src="https://via.placeholder.com/400x200?text=SE" class="category-img">
+      <div class="category-name">Software Engineering</div>
+    </div>
+  </a>
+</div>
+
+<div class="col">
+  <a href="hacking.html" class="text-decoration-none">
+    <div class="card category-card">
+      <img src="https://via.placeholder.com/400x200?text=Hacking" class="category-img">
+      <div class="category-name">Ethical Hacking</div>
+    </div>
+  </a>
+</div>
+
+<div class="col">
+  <a href="uiux.html" class="text-decoration-none">
+    <div class="card category-card">
+      <img src="https://via.placeholder.com/400x200?text=UI+UX" class="category-img">
+      <div class="category-name">UI/UX Design</div>
+    </div>
+  </a>
+</div>
+
+<div class="col">
+  <a href="statistics.html" class="text-decoration-none">
+    <div class="card category-card">
+      <img src="https://via.placeholder.com/400x200?text=Statistics" class="category-img">
+      <div class="category-name">Statistics</div>
+    </div>
+  </a>
+</div>
+
+<div class="col">
+  <a href="cybersecurity.html" class="text-decoration-none">
+    <div class="card category-card">
+      <img src="https://via.placeholder.com/400x200?text=Blockchain" class="category-img">
+      <div class="category-name">Cybersecurity</div>
+    </div>
+  </a>
+</div>
+
+<div class="col">
+  <a href="bi.html" class="text-decoration-none">
+    <div class="card category-card">
+      <img src="https://via.placeholder.com/400x200?text=BI" class="category-img">
+      <div class="category-name">Labs & Practicals</div>
+    </div>
+  </a>
+</div>
+
+<div class="col">
+  <a href="soft_skills.html" class="text-decoration-none">
+    <div class="card category-card">
+      <img src="https://via.placeholder.com/400x200?text=Soft+Skills" class="category-img">
+      <div class="category-name">Soft Skills</div>
+    </div>
+  </a>
+</div>
+
+
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>&copy; 2025 Learning Management System | All Rights Reserved</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
